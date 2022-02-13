@@ -1,0 +1,210 @@
+@use 'src/styles/vars';
+
+.dashboard-page{
+  position: relative;
+  z-index: auto;
+}
+
+
+.dashboard-view{
+  margin-top:1.5rem ;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  display: flex;
+  flex-direction: column-reverse;
+  overflow-y: auto;
+  padding-bottom:4rem;
+  top:-600px;
+  
+
+  .left-view{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: vars.$back-color;
+    backdrop-filter: vars.$blur;
+    border-radius: vars.$b-radius;
+    border: vars.$border-color;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    
+
+    
+    h3 {
+      padding-bottom: 0.5rem;
+      font-weight: 900;
+    }
+
+    ul {
+      padding-bottom: 0.3rem;
+      align-self:flex-start;
+      overflow-y: auto;
+      width: 100%;
+      height: 150px;
+    }
+
+    ul li {
+      padding-bottom: 0.2rem;
+    }
+
+    button{
+      margin-bottom: 1rem;
+      border: none;
+      color: whitesmoke;
+      padding: .5rem;
+    }
+  }
+
+  .right-view{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+    h3 {
+      padding-bottom:0.5rem ;
+      font-weight: 900;
+    }
+
+    ul li {
+      padding-bottom: 0.2rem;
+    }
+
+    .current-tasks{
+      display: flex;
+      flex-direction: column;
+      background-color: vars.$back-color;
+      backdrop-filter: vars.$blur;
+      border-radius: vars.$b-radius;
+      border: vars.$border-color;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      width: 100%;
+      padding: 1.5rem;
+      
+
+      ul{
+        align-self:flex-start;
+        overflow-y: auto;
+        max-height: 5rem;
+        width: 100%;
+      }
+
+    }
+
+    .future-tasks{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: vars.$back-color;
+      backdrop-filter: vars.$blur;
+      border-radius: vars.$b-radius;
+      border: vars.$border-color;
+      margin-bottom: 1.5rem;
+      width: 100%;
+      padding: 1.5rem;
+      overflow-y: auto;
+
+      h3 {
+        padding-bottom: 0.5rem;
+      }
+
+      ul{
+        padding-bottom: 0.3rem;
+        align-self:flex-start;
+        max-height: 6rem;
+        width: 100%;
+      }
+  
+      ul li {
+        padding-bottom: 0.2rem;
+      }
+    }
+  }
+}
+
+// --- Zone Desktop ---
+@media (min-width: 600px) {
+
+  .dashboard-page{
+    margin-top: 5rem;
+    margin-left: 75px;
+    height: 80%;
+    
+    .dashboard-view {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      max-width: 70rem;
+      
+
+      .left-view{
+        width: 40%;
+        height: 100%;
+        margin-right: 1.5rem;
+
+        ul{
+          height: 450px;
+          
+        }
+
+        ul::-webkit-scrollbar {
+          width: 10px;
+        }
+    
+        ul::-webkit-scrollbar-track {
+          background-color: whitesmoke;
+          border-radius: 100px;
+        }
+    
+        ul::-webkit-scrollbar-thumb {
+          background-color: black;
+          border-radius: 100px;
+        }
+      }
+
+      .right-view{
+        width: 60%;
+
+        .current-tasks {
+          height: 65%;
+
+          h3 {
+            padding-bottom: 1rem;
+          }
+
+          ul{
+            min-height: 90%;
+          }
+
+          ul::-webkit-scrollbar {
+            width: 10px;
+          }
+
+          ul::-webkit-scrollbar-track {
+            background-color: whitesmoke;
+            border-radius: 100px;
+          }
+
+          ul::-webkit-scrollbar-thumb {
+            background-color: black;
+            border-radius: 100px;
+          }
+        }
+  
+        .future-tasks{
+          height: 35%;
+
+          h3 {
+            padding-bottom: 1rem;
+          }
+
+          ul{
+
+          }
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,85 @@
+@use 'src/styles/vars';
+
+.login-form-page {
+  display: flex;
+  flex-direction: column;
+  padding-top: 5rem;
+  height: 45vh;
+  align-items: center;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.5rem;
+  background-color: vars.$back-color;
+  backdrop-filter: vars.$blur;
+  border-radius: vars.$b-radius;
+  border: vars.$border-color;
+
+  h2{
+    margin-bottom: 1.5rem;
+  }
+
+  p{
+    background-color: white;
+    border-radius: 0.8rem;
+    color: red;
+    padding: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .noAccount{
+    font-size: small;
+    margin-top: 1rem;
+    font-style: italic;
+    text-decoration: underline;
+    
+  }
+
+  .login-connect {
+    // margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // background-color: green;
+    width: 50%;
+    min-width: 200px;
+
+    .login-form-email,.login-form-password {
+      height: 2rem;
+      width: 90%;
+      margin-bottom: 1rem;
+    }
+
+    .login-form-button {
+      height: 2rem;
+      width: 30%;
+      min-width: 100px;
+      margin-left: auto;
+      margin-right: auto;
+
+      color: whitesmoke;
+      font-family: 'roboto';
+    }
+  }
+}
+
+
+
+
+// --- Zone Desktop ---
+@media (min-width: 600px) {
+  .login-form-page {
+    width: 60%;
+    max-width: 50rem;
+    max-height: 30rem;
+    min-height: 23rem;
+    margin-top: 5rem;
+  }
+}
+
+
+
