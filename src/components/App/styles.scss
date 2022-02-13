@@ -1,0 +1,83 @@
+@use 'src/styles/vars';
+:root {
+  font-size: 16px;
+}
+.app{
+  font-family: 'roboto', sans-serif;
+  color: whitesmoke;
+  position: relative;
+
+  button {
+    background-color: black;
+    border-radius: vars.$b-radius;
+    border: none;
+    color: whitesmoke;
+    padding: .5rem;
+    font-family: 'roboto', sans-serif;
+  }
+
+  input {
+    background-color: vars.$back-color2;
+    border-radius: vars.$b-radius;
+    border: vars.$border-color;
+    border: none;
+    padding: .5rem;
+    height: 1.5rem;
+  }
+
+  input::placeholder {
+    color: whitesmoke;
+  }
+
+  textarea {
+    background-color: vars.$back-color2;
+    border-radius: vars.$b-radius;
+    border: vars.$border-color;
+    border: none;
+    padding: .5rem;
+    height: 5.5rem;
+  }
+
+  textarea::placeholder {
+    color: whitesmoke;
+  }
+
+  select {
+    background-color: vars.$back-color2;
+    border-radius: vars.$b-radius;
+    border: vars.$border-color;
+    border: none;
+    height: 1.5rem;
+
+    option {
+      background-color: vars.$back-color2;
+      border-radius: vars.$b-radius;
+      border: vars.$border-color;
+      border: none;
+    }
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  /** background image */
+  background: linear-gradient(45deg, rgb(5, 177, 245), rgb(209, 209, 113), rgb(214, 214, 212));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: whitesmoke;
+  border-radius: 100px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 100px;
+}

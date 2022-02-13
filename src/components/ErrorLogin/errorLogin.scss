@@ -1,0 +1,20 @@
+.error-page {
+  text-align: center;
+  height: 100vh;
+  padding-top: 5rem;  
+  
+  .title-error {
+    font-size: calc(17vw + 40px);
+    opacity: .8;
+    letter-spacing: -17px;
+  }
+  
+  .text-error {
+    opacity: .8;
+    font-size: 20px;
+    margin: 8px 0 38px 0;
+    font-weight: bold
+  }
+}
+
+

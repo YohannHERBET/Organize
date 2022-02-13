@@ -1,0 +1,230 @@
+@use "../../styles/vars";
+
+.navbar-container {
+  max-width: 250px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  .navbar-ul {
+    position: fixed;
+
+    z-index: 2;
+
+    background-color: vars.$back-color;
+    backdrop-filter: vars.$blur;
+    border-right: vars.$border-color;
+    color: whitesmoke;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    overflow: hidden;
+
+    transition: width 200ms ease;
+
+    .nav-item {
+      width: 100%;
+      transition: all 200ms;
+
+      .dashboard-icon,
+      .views-icon,
+      .project-icon,
+      .settings-icon {
+        display: flex;
+        align-items: center;
+        height: 75px;
+        padding-left: 1.5rem;
+
+        .navlink-text {
+          display: none;
+          position: fixed;
+          margin-left: 3rem;
+
+          :hover {
+            background-color: transparent;
+            backdrop-filter: none;
+          }
+
+          span{
+            cursor: pointer;
+          }
+
+        }
+
+        :hover {
+          background-color: transparent;
+          backdrop-filter: none;
+        }
+      }
+
+      .projects-list {
+        display: none;
+      }
+    }
+
+    :hover {
+      background-color: vars.$back-color;
+      backdrop-filter: vars.$blur;
+    }
+
+    .navbar-settings-li {
+      margin-top: auto;
+    }
+  }
+}
+
+/* Small screens */
+@media only screen and (max-width: 600px) {
+  .navbar-container {
+
+    .navbar-ul {
+      bottom: 0;
+      width: 100vw;
+      height: 75px;
+
+      flex-direction: row;
+
+      transition: width 0ms;
+
+      .nav-item {
+
+        .dashboard-icon,
+        .views-icon,
+        .project-icon,
+        .settings-icon {
+          justify-content: center;
+          padding-right: 1.5rem;
+        }
+      }
+    }
+  }
+}
+  .projects-container {
+ 
+  background-color: vars.$back-color;
+  backdrop-filter: vars.$blur;
+  border-radius: vars.$b-radius;
+  border: vars.$border-color;
+  align-items: center;
+  position:fixed;
+  bottom: 75px;
+  display: flex;
+  flex-direction: column;
+  z-index:2;
+  color:whitesmoke;
+  width: 100vw;
+  height: 25vh;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+
+    .mobile-projects-list{      
+      overflow-y: auto;
+      height: 30vh;
+      bottom: 75px;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    li{
+      margin: 0.4rem;     
+    }
+
+    button{
+      position:fixed;
+      bottom:1rem;
+      right:2rem;
+      width: 3rem;
+      height:2.5rem;
+      z-index:3;
+      padding: .5rem 1rem;
+      background-color: black;
+      border-radius: vars.$b-radius;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  
+/* Large screens */
+@media only screen and (min-width: 600px) {
+
+  .projects-container{
+    display:none;
+  }
+  .navbar-container {
+
+    .navbar-ul {
+      width: 75px;
+      height: calc(100vh - 3rem);
+      top:3rem;
+    }
+
+    :hover {
+      width: 250px;
+
+      .nav-item {
+
+        .dashboard-icon,
+        .project-icon,
+        .views-icon,
+        .settings-icon {
+
+          .navlink-text {
+            display: block;
+
+            .navlink-text-span {
+              margin-left: 5rem;
+              padding: .5rem 1rem;
+              background-color: black;
+              border-radius: vars.$b-radius;
+            }
+          }
+        }
+      }
+
+      .nav-item-projects {
+
+        .projects-list {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          overflow-y: auto;
+          overflow-x: hidden;
+          background-color: transparent;
+          backdrop-filter: none;
+          text-align: center;
+          max-height: 15rem;
+          padding-bottom: 0.5rem;
+          margin-top: .5rem;
+          padding-left: .25rem;
+          padding-right: .25rem;
+
+          li {
+            list-style: none;
+            padding-top: .25rem;
+            padding-bottom: .25rem;
+          }
+        }
+
+        .projects-list::-webkit-scrollbar {
+          width: 10px;
+        }
+  
+        .projects-list::-webkit-scrollbar-track {
+          background-color: whitesmoke;
+          border-radius: 100px;
+        }
+  
+        .projects-list::-webkit-scrollbar-thumb {
+          background-color: black;
+          border-radius: 100px;
+        }
+      }
+    }
+  }
+}

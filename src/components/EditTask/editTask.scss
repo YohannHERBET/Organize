@@ -1,0 +1,112 @@
+@use 'src/styles/vars';
+
+.container-form{
+
+  width:100%;
+
+  .edittask-form {
+    background-color: vars.$back-color;
+    backdrop-filter: vars.$blur;
+    border-radius: vars.$b-radius;
+    border: vars.$border-color;
+    margin: vars.$margin-pop-in;
+    padding: 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+
+    .edit-task-close {
+      margin-left: auto;
+
+      span{
+        cursor:pointer;
+      }
+    }
+
+    .header-form {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 1rem;
+    }
+
+    .input-form {
+
+      width: 100%;
+
+      :first-child {
+        margin-bottom: 0.5rem;
+        width: 100%;
+        height: 2rem;
+      }
+
+      .important-select {
+        margin-bottom: 1rem;
+      }
+
+      :nth-child(2) {
+        width: 100%;
+      }
+
+      p {
+        margin-bottom: 1rem;
+      }
+
+      .assignated-category{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        select{
+          width: 400px ;
+          text-align: center;
+          height: 1.5rem;
+          background-color: vars.$back-color2;
+          border-radius: vars.$b-radius;
+          border:none;
+
+        }
+      }
+
+      .date-form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;   
+
+        :first-child {
+          width: 50%;
+        }
+        .first-input-form {
+          width: 50%;
+          height: 1.5rem;
+        }
+        :nth-child(3) {
+          width: 50%;
+        }
+        :nth-child(4) {
+          width: 50%;
+          margin-bottom: 1rem;
+        }
+      }
+
+      .button-form {
+
+        width: 75%;   
+      }
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .container-form {
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 3rem;
+
+    .edittask-form {
+      max-width: 45rem;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+  }
+}
+

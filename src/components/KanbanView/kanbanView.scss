@@ -1,0 +1,249 @@
+@use 'src/styles/vars';
+
+.kanban-view {
+  overflow-x: auto;
+  position: relative;
+  z-index: auto;
+  margin-top: 50px;
+  padding-right: 1rem;
+  
+  .kanban-view::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .kanban-view::-webkit-scrollbar-track {
+    background-color: whitesmoke;
+    border-radius: 100px;
+  }
+
+  .kanban-view::-webkit-scrollbar-thumb {
+    background-color: black;
+    border-radius: 100px;
+  }
+
+  .kanban-title-option {
+    margin-top: -2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+
+    .title-delete-project {
+      display: flex;
+      margin-bottom: 0.5rem;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .button-project-category {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-left: 1rem;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-right: 2rem;
+      margin-top: auto;
+      margin-bottom: 0.5rem;
+    }
+
+    .button-change-project {
+      height: 2rem;
+      width: 125px;
+      margin-right: 0.5rem;
+    }
+
+    .button-add-category {
+      height: 2rem;
+      width: 143px; 
+      margin-right: 0.5rem;
+    }
+
+    .button-delete-project {
+      height: 2rem;
+      width: 34px;
+      display: flex;
+      justify-content: center;
+      align-items: center; 
+    }
+  }
+
+  .kanban-board {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: flex-start;
+    max-height: 75vh;
+
+    .kanban-category {
+      max-height: 75%;
+      min-width: 275px;
+      margin-left: 2rem;
+      margin-right: 1rem;
+      margin-bottom: 75px;
+
+      
+      background-color: vars.$back-color;
+      backdrop-filter: vars.$blur;
+      border-radius: vars.$b-radius;
+      border: vars.$border-color;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .board-header{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 85%;
+
+        .button-edit-category {
+          margin-right: 0.5rem;
+        }
+
+        span{
+          height: 0.8rem;
+          width: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center; 
+        }
+      }
+        
+
+      .kanban-tasks {
+        overflow-y: auto;
+        max-height: 75vh;
+        padding: .6rem;
+
+        .kanban-task {
+          position:relative;
+          background-color: vars.$back-color;
+          backdrop-filter: vars.$blur;
+          border-radius: vars.$b-radius;
+          border: vars.$border-color;
+          height: 130px;
+          min-width: 230px;
+          max-width: 230px;
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 1rem;
+          padding: .5rem;
+          display: flex;
+          flex-direction: column;
+      
+          .task-title {
+            margin-bottom: .5rem;
+            word-wrap: break-word;
+          }
+
+          .task-priority {
+            font-size: small;
+            font-style: italic;
+          }
+
+          .timer {
+            display:flex;
+            flex-direction: row;
+            align-items: center;
+            position:fixed;
+            bottom:0.5rem;
+
+            .dueDate {
+              font-size: small;
+              font-style: italic;
+            }
+
+            #timelapse {
+              margin-right: 0.2rem;
+              font-size:medium;
+            }
+
+          }
+
+          button {
+            border: none;
+            color: whitesmoke;
+            padding: .5rem;
+            max-width: 5rem;
+            align-self: flex-end;
+            position:fixed; 
+            bottom: -0.5rem;
+          }
+        }
+      }
+
+      button {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+// --- Zone Desktop ---
+@media (min-width: 600px) {
+  .kanban-view {
+    margin-left: 100px;
+    margin-top: 6rem;
+
+    .kanban-title-option {
+      width: 100%;
+      left: 0;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+
+      .title-delete-project {
+        width: 34%;
+      }
+      .button-project-category {
+        width: 49%;
+      }
+    }
+
+    .kanban-board {
+      margin-top: 4rem;
+      max-height: 80vh;
+      margin-bottom: 1rem;
+
+      .kanban-category {
+        max-height: 90%;
+      }
+
+      .kanban-tasks::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      .kanban-tasks::-webkit-scrollbar-track {
+        background-color: whitesmoke;
+        border-radius: 100px;
+      }
+
+      .kanban-tasks::-webkit-scrollbar-thumb {
+        background-color: black;
+        border-radius: 100px;
+      }
+    }
+  }
+
+  .kanban-view::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .kanban-view::-webkit-scrollbar-track {
+    background-color: whitesmoke;
+    border-radius: 100px;
+  }
+
+  .kanban-view::-webkit-scrollbar-thumb {
+    background-color: black;
+    border-radius: 100px;
+  }
+}

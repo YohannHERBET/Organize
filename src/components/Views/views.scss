@@ -1,0 +1,32 @@
+.container-construction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 75px;
+
+  .construction-logo {
+    width: 8rem;
+    margin-top: 6rem;
+  }
+
+  .construction-page {
+    text-align: center;
+    margin-top: 5rem;
+    font-size: 5rem;
+}
+}
+@media only screen and (max-width: 600px) {
+
+.container-construction {
+  margin-left: 0px;
+
+  .construction-logo {
+    width: 4rem;
+    margin-top: 6rem;
+  }
+  .construction-page {
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+}
+}

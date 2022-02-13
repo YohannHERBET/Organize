@@ -1,0 +1,98 @@
+@use 'src/styles/vars';
+
+.container-form{
+  position: absolute;
+  z-index: 2;
+}
+
+.newtask-form {
+  background-color: vars.$back-color;
+  backdrop-filter: vars.$blur;
+  border-radius: vars.$b-radius;
+  border: vars.$border-color;
+  margin: vars.$margin-pop-in;
+  padding: 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+
+  .new-task-close {
+    margin-left: auto;
+    
+    span{
+      cursor: pointer;
+    }
+  }
+
+  .header-form {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+  }
+
+  .input-form {
+
+    width: 100%;
+
+    .newtask-title {
+      margin-bottom: 1rem;
+      width: 100%;
+      height: 2rem;
+
+    }
+
+    .newtask-description {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    .important-select {
+      margin-bottom: 1rem;
+    }
+
+    .assignated-category{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+
+      input{
+        width: 165px ;
+        text-align: center;
+      }
+    }
+
+    label {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  
+  .container-form {
+    left: 75px;
+    margin-left: auto;
+    margin-right: auto;
+    top: 0%;
+    width: 70%;
+    height: 500px;
+
+      .newtask-form {
+      display: flex;
+      flex-direction: column;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 45rem;
+      margin-bottom: 8rem;
+    }
+  }
+}
+

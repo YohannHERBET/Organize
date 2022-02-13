@@ -1,0 +1,229 @@
+@use 'src/styles/vars';
+
+.navbar--close{
+  z-index: 2;
+  position: fixed;
+  bottom:0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: vars.$back-color;
+  backdrop-filter: vars.$blur;
+  border-right: vars.$border-color;
+  width: 100%;
+  height:4rem;
+
+  .open-button{
+    display:none;
+  }
+
+  p{
+    display: none;
+  }
+
+  .navbar{
+    z-index: 2;
+    position: fixed;
+    bottom:0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: vars.$back-color;
+    backdrop-filter: vars.$blur;
+    border-right: vars.$border-color;
+
+    width: 100%;
+    height:4rem;
+
+    .open-button{
+      display:none;
+    }
+
+    .project-icon {
+      margin-top: 2rem;
+    }
+
+    .projects-list{
+      display: none;
+      
+    }
+
+    .mobile-projects-list {
+      display: none;
+    }
+  }
+}
+
+// --- Zone Desktop ---
+@media (min-width: 600px) {
+  .navbar-container {
+    max-width: 250px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+
+
+    .navbar--close{
+      top: 3rem;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      background-color: vars.$back-color;
+      backdrop-filter: vars.$blur;
+      border-right: vars.$border-color;
+
+      height: calc(100vh - 3rem);
+      width: 75px;
+
+      p{
+        display: none;
+      }
+
+      .projects-list{
+        display: none;
+      }
+
+      .mobile-projects-list {
+        display: none;
+      }
+
+      .open-button {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+
+      .navbar-dashboard {
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 1rem;
+      }
+
+      .navbar-project {
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 1rem;
+
+        .project-icon {
+          margin-top:0;
+        }
+      }
+
+      .navbar-view {
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 1rem;
+      }
+
+      .navbar-settings {
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 1rem;
+      }
+
+      .dashboard-icon,.views-icon,.settings-icon {
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 1rem;
+      }
+
+      .navbar-settings {
+        margin-top: auto;
+      }
+
+      &.navbar--open{
+        top: 3rem;
+        z-index: 2;  
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    
+        background-color: vars.$back-color;
+        backdrop-filter: vars.$blur;
+        border-right: vars.$border-color;
+        height: calc(100vh - 3rem);
+        width: 250px;
+
+        p{
+          display: block;
+          width: 80%;
+        }
+    
+        .projects-list{
+          display: block;
+          margin-left: 1.5rem;
+        }
+    
+        .open-button {
+          display: block;
+          align-self:flex-end;
+          margin-right: 2rem;
+          padding-top: 1rem;
+          padding-bottom: 2rem;
+          transform: rotate(180deg);
+          width: 90%;
+          height: 1.5rem;
+        }
+
+        .navbar-dashboard {
+          padding-bottom: 1rem;
+          margin-left: 0;
+          
+          .dashboard-icon {
+            display: flex;
+            align-items: center;
+            
+          }
+        }
+    
+        .navbar-project {
+          margin-left: 1rem;
+          padding-bottom: 1rem;
+          display: flex;
+          flex-wrap: wrap;
+        }
+
+        .projects-list{
+          display: block;
+          
+        }
+    
+        .mobile-projects-list {
+          display: none;
+        }
+
+        .navbar-view {
+          margin-left: 0;
+          padding-bottom: 1rem;
+          
+          .views-icon {
+            display: flex;
+          }
+        }
+
+        .navbar-settings {
+          margin-left: 0;
+          padding-bottom: 1rem;
+          
+          .settings-icon {
+            display: flex;
+          }
+        }
+    
+        .dashboard-icon,.views-icon,.settings-icon {
+          margin-left: 1rem;
+          // margin-right: auto;
+          padding-bottom: 1rem;
+        }
+      }
+    }
+  }
+
+}

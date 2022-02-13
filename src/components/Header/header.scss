@@ -1,0 +1,118 @@
+@use 'src/styles/vars';
+
+.home-header{
+  background-color: vars.$back-color;
+  backdrop-filter: vars.$blur;
+  border-bottom: vars.$border-color;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3em;
+  width: 100%;
+
+  .home-header-left {
+    .logo{
+      width: 7rem;
+      margin-left: -1.5em;
+      margin-top: 0.3rem;
+    }
+
+    .header-title{
+      display:none;
+    }
+  }
+  
+  .home-header-right{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 500px;
+    margin-right: 1em;
+    color:white;
+
+    .log-buttons{
+      margin-right: 1rem;
+
+      .login-button{
+        margin-right:0.5rem;
+      }
+      .loggout-button{
+        margin-right:0.5rem;
+      }
+    }
+
+    .picture-profil{
+      display: none;
+    }
+  }
+}
+
+
+
+// --- Zone Desktop ---
+@media (min-width: 600px) {
+
+  .home-header{
+    position: fixed;
+    top:0;
+    z-index: 4;
+    background-color: vars.$back-color;
+    backdrop-filter: vars.$blur;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3em;
+    width: 100%;
+
+    .home-header-left{
+
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: row;
+      width: 300px;
+
+      .logo{
+        display: none;
+        width: 50rem;
+        margin-left: -1em;
+        margin-top: 0.3rem;
+      }
+
+      .header-title{
+        display: block;
+        color:white;
+        margin-left: 1em;
+        text-transform: uppercase;
+        font-weight:bolder ;
+      }
+    }
+    
+    .home-header-right{
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      width: 300px;
+      margin-right: 1em;
+
+      .log-buttons{
+        margin-right: 1rem;
+
+        .login-button{
+          margin-right:0.5rem;
+        }
+        .loggout-button{
+          margin-right:0.5rem;
+        }
+      }
+
+      .picture-profil{
+        display: block;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+      }
+    }
+  }
+}
