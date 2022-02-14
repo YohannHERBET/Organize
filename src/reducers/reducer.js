@@ -3,7 +3,6 @@ import {
   DISPLAY_LOG_BUTTON,
   DISPLAY_MOBILE_PROJECT_LIST,
   SAVE_USER_DATA,
-  SAVE_NEW_USER_DATA,
   LOGOUT,
   SAVE_LOGGED,
   SAVE_ERROR_CODE,
@@ -91,7 +90,6 @@ const initialState = {
   categorySelect: '',
 };
 
-// eslint-disable-next-line arrow-body-style
 const reducer = (state = initialState, action) => {
   switch (action.type) {
 
@@ -254,7 +252,6 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         token: action.token,
-        // sécurité : on en profite pour effacer les identifiants dans le state
         changeInputLoginEmail: '',
         changeInputLoginPassword: '',
       };

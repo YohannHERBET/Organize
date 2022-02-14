@@ -62,10 +62,3 @@ export const SHOW_EDIT_CATEGORY_MODAL = 'SHOW_EDIT_CATEGORY_MODAL';
 export const showEditCategoryModal = () => ({
   type: SHOW_EDIT_CATEGORY_MODAL,
 });
-
-/*
-Modal change password
-Modal delete le Compte
-+ projet dans navbar
-// Voir plus (edit task)
-*/

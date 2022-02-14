@@ -1,13 +1,4 @@
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable arrow-body-style */
-
-/**
- * on trouve le projet voulue dans la liste des recettes
- * @param {Array} projects - tous les projets
- * @param {string} searchedProjectId - l'identifiant du projet recherché
- * @return {Object} - La recette trouvée
- */
- export function findProject(projects, searchedProjectId) {
+export function findProject(projects, searchedProjectId) {
   const project = projects.find((currentProject) => {
     return currentProject.slug === searchedProjectId;
   });

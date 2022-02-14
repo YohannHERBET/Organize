@@ -1,4 +1,3 @@
-
 import { createStore, applyMiddleware, compose } from 'redux';
 import projectsApiMiddleware from 'src/middlewares/projectsApi';
 import reducer from 'src/reducers';

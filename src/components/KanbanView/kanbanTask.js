@@ -1,7 +1,6 @@
-import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { showEditTaskModal } from 'src/actions/modals';
-import { saveCurrentTaskId, fetchTask, saveTask } from 'src/actions/projects';
+import { saveCurrentTaskId, fetchTask } from 'src/actions/projects';
 import { findPriority } from 'src/selectors/selectors';
 import { fetchCategory, fetchProject, saveCurrentCategoryId } from '../../actions/projects';
 
@@ -10,18 +9,12 @@ const KanbanTask = ({ taskId, task, priority, categoryId, dueDate }) => {
   const currentProjectId = useSelector((state) => state.reducer.currentProjectId);
 
   let today = Date.now();
-  console.log(today)
   const dueDateMs = Date.parse(dueDate);
-  console.log(dueDateMs)
 
   const timerMs = dueDateMs - today;
-  console.log(timerMs)
   const timerDay = timerMs/1000/60/24/30/2;
-  console.log(timerDay);
-
-
   const timerDayRounded = Math.ceil(timerDay)
-  console.log(timerDayRounded);
+  // for the difference of the date in a task with the duedate and date of the day
   
 
 

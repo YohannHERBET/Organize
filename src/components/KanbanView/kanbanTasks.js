@@ -1,15 +1,6 @@
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchData } from 'src/actions/projects';
-import { sendTask } from '../../actions/controlledField';
-
 import KanbanTask from './kanbanTask';
 
 const KanbanTasks = ({ categoryTasks, categoryId }) => {
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(fetchData());
-  // }, [sendTask()]);
 
   return (
     <div className="kanban-tasks" key={categoryId}>
@@ -27,5 +18,3 @@ const KanbanTasks = ({ categoryTasks, categoryId }) => {
 };
 
 export default KanbanTasks;
-
-// TODO Props validations

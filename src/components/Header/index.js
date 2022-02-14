@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import logo from 'src/assets/logo2.png';
 import LogButton from './logButton';
 import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
 
 const Header = () => {
 

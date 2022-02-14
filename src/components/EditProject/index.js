@@ -1,25 +1,20 @@
 import './editProject.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { hideModal } from 'src/actions/modals';
-import { changeInputChangeProjectName, changeInputChangeProjectDescription, editProject } from 'src/actions/controlledField';
+import 
+  { 
+    changeInputChangeProjectName, 
+    changeInputChangeProjectDescription, 
+    editProject 
+  } from 'src/actions/controlledField';
 import { fetchData, fetchProject} from '../../actions/projects';
 
 const EditProject = () => {
   const dispatch = useDispatch();
-  // const projectsData = useSelector((state) => state.reducer.projectsData);
-  // console.log(projectsData);
-  // const currentProjectId = useSelector((state) => state.reducer.currentProjectId);
-  // const currentProject = projectsData.find((project) => project.id === currentProjectId);
-  // console.log(currentProject);
-
-
 
   const projectNameValue = useSelector((state) => state.reducer.inputChangeProjectName);
   const projectDescriptionValue = useSelector((state) => state.reducer.inputChangeProjectDescription);
   
-  
-  
-
   return (
     <div className="current-project-container">
 

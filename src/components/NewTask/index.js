@@ -70,6 +70,7 @@ const NewTask = () => {
           >
             <option
             value="">importance</option>
+            {/* importanceList is a table in selector the file for compare the datas of API with this table */}
             {importanceList.map((importance) => (
               <option
                 key={importance.id}

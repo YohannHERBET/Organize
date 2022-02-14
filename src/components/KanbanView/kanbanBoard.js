@@ -1,13 +1,9 @@
-import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { showNewTaskModal, 
   showDeleteCategoryModal, 
   showEditCategoryModal 
 } from 'src/actions/modals';
 import { saveCurrentCategoryId, fetchCategory } from 'src/actions/projects';
-
-
-import { sendCategory } from 'src/actions/controlledField';
 import KanbanTasks from './kanbanTasks';
 
 const KanbanBoard = 
@@ -17,11 +13,6 @@ const KanbanBoard =
   categoryTasks }) => {
 
   const dispatch = useDispatch();
-  // console.log(categoryTasks);
-  // const valueChangeCategoryName = useSelector((state) => state.controlled.inputChangeCategoryName);
-  console.log(categoryName);
-
-  console.log(categoryId);
 
   return (
     
