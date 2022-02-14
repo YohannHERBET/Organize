@@ -35,6 +35,7 @@ const ChangePassword = () => {
             onSubmit={(event) => {
               event.preventDefault();
               dispatch(hideModal());
+              // editPassword = method for send the new password
               dispatch(editPassword());
               dispatch(logout());
               navigate("/login", { replace: true })

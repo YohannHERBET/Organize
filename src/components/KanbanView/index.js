@@ -1,15 +1,11 @@
 import './kanbanView.scss';
-
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-
 import Header from 'src/components/Header';
 import Navbar from 'src/components/Navbar';
 import {
   showEditProjectModal,
   showDeleteProjectModal,
   showNewCategoryModal,
-  hideModal,
 } from 'src/actions/modals';
 
 import KanbanBoard from './kanbanBoard';
@@ -35,7 +31,7 @@ const KanbanView = () => {
   const projectsDataFromState = useSelector((state) => state.reducer.projectsData);
   const currentProjectId = useSelector((state) => state.reducer.currentProjectId); 
   const foundProject = projectsDataFromState.find((project) => project.id == currentProjectId);
-  // console.log(foundProject);
+
   const displayDeleteProjectModal = useSelector((state) => state.modals.displayDeleteProjectModal);
   const displayEditProjectModal = useSelector((state) => state.modals.displayEditProjectModal);
 
@@ -48,11 +44,7 @@ const KanbanView = () => {
   const displayEditCategoryModal = useSelector((state) => state.modals.displayEditCategoryModal);
 
   return (
-    <div
-      // onClick={() => (
-      //   displayNewCategoryModal ? dispatch(hideModal()) : null
-      // )}
-    >
+    <div>
       <Header />
       <Navbar />
       {displayEditProjectModal && (<EditProjectModal />)}

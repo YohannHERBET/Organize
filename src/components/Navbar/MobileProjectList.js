@@ -10,7 +10,6 @@ const MobileProjectList = () => {
   const dispatch = useDispatch();
   const projectsDataFromState = useSelector((state) => state.reducer.projectsData);
 
-
   return (
 
     <div className="projects-container">

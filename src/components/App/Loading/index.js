@@ -1,9 +1,8 @@
 import React from 'react';
 
 import './style.scss';
-
-const Loading = () => (
-  
+// Loader for all of the site
+const Loading = () => (  
   <div className="loading">Veuillez patienter</div>
 );
 

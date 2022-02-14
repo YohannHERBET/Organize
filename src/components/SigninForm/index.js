@@ -13,9 +13,9 @@ const SigninForm = () => {
 
   const valueSigninEmail = useSelector((state) => state.reducer.inputSigninEmail);
   const valueSigninPassword = useSelector((state) => state.reducer.inputSigninPassword);
-  const errorCode = useSelector((state) => state.reducer.errorCode);
   let navigate = useNavigate();
   const dispatch = useDispatch();
+
   return (
     <>
       <Header />
@@ -46,7 +46,6 @@ const SigninForm = () => {
                   dispatch(changeInputSigninEmail(event.target.value))
                 }}  
               />
-               {/* {errorCode === 422 ? <p>Adresse email non valide</p> : null } */}
               <input  
                 className="signin-form-password"
                 required

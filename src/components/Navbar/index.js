@@ -1,8 +1,6 @@
 import './navbar2.scss';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import classNames from 'classnames';
-
 import { showNewProjectModal } from 'src/actions/modals';
 import { displayMobileProjectList } from 'src/actions/action';
 
@@ -11,12 +9,7 @@ import ProjectList from './ProjectList';
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const isOpen = useSelector((state) => state.reducer.isOpen);
   const mobileProjectList = useSelector((state) => state.reducer.mobileProjectList);
-
-  const cssClass = classNames('navbar--close', { 'navbar--open': isOpen });
-
- 
 
   return (
     <>
@@ -49,14 +42,6 @@ const Navbar = () => {
             </div>
             <ProjectList />
           </li>
-
-          {/* <li className="nav-item">
-            <NavLink className="views-icon" to="/views">
-              <span className="material-icons md-48">visibility</span>
-              <p className="navlink-text">Vues</p>
-            </NavLink>
-          </li> */}
-
           <li className="navbar-settings-li nav-item">
             <NavLink className="settings-icon" to="/settings">
               <span className="material-icons md-48">settings</span>

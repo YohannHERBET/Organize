@@ -4,16 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import Header from 'src/components/Header';
 import { changeInputLoginEmail, changeInputLoginPassword } from 'src/actions/controlledField';
 import { logIn, saveUserData } from 'src/actions/action';
-// import { Navigate } from "react-router-dom";
 import { useNavigate, Link } from "react-router-dom";
-import ErrorLogin from 'src/components/ErrorLogin';
 
 const LoginForm = () => {
   const valueLoginEmail = useSelector((state) => state.reducer.changeInputLoginEmail);
   const valueLoginPassword = useSelector((state) => state.reducer.changeInputLoginPassword);
   const isLogged = useSelector((state) => state.reducer.isLogged);
   const errorCode = useSelector((state) => state.reducer.errorCode);
-  const loading = useSelector((state) => state.reducer.loading);
   const dispatch = useDispatch();
   let navigate = useNavigate();
 

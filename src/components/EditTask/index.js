@@ -1,6 +1,5 @@
 import './editTask.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
 import { hideModal, showDeleteTaskModal } from 'src/actions/modals';
 
 import {
@@ -95,7 +94,9 @@ const EditTask = () => {
               dispatch(changeSelectNewPriority(event.target.value));
             }}
           >
+            {/* findPriority is in the selector file, it's a function for find the priority with her argument, she return a string for the display */}
             <option value={task.priority}>{`${findPriority(task.priority)} (actuel)`}</option>
+            {/* importanceList is a table in selector the file for compare the datas of API with this table */}
             {importanceList.map((importance) => (
               <option
                 key={importance.id}

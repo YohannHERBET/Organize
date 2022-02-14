@@ -2,7 +2,6 @@ import './newProject.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { hideModal } from 'src/actions/modals';
 import { sendProject, changeInputNewProjectName, changeInputNewProjectDescription } from 'src/actions/controlledField';
-import { fetchData } from '../../actions/projects';
 
 const NewProject = () => {
   const valueNewProjectName = useSelector((state) => state.controlled.inputProjectName);

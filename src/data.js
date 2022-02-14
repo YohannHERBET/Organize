@@ -1,6 +1,3 @@
-// 20220201102506
-// http://jeremy-lachaumette-server.eddi.cloud/projet-O-rganize-back/public/api/user/2/project
-
 export default [
   {
     "id": 1,

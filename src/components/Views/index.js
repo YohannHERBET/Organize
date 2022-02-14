@@ -1,6 +1,5 @@
 import './views.scss';
 import Header from 'src/components/Header';
-import Footer from 'src/components/Footer';
 import Navbar from 'src/components/Navbar';
 import constructor from 'src/assets/noun-construction.png';
 

@@ -10,7 +10,7 @@ const logButton = () => {
   return(
     <div className="log-buttons">
       {!isLogged &&
-      (
+      (      
       <>
         <NavLink type="submit" className="login-button" to="/login"> Se connecter </NavLink>
         <NavLink type="submit" className="signin-button" to="/signin"> S'inscrire </NavLink>
@@ -18,18 +18,18 @@ const logButton = () => {
       )}
       {isLogged &&
        (
-       <NavLink
-         type="submit"
-         className="loggout-button"
-         to="/"
-         onClick={(event) => {
-           event.preventDefault();
-           dispatch(logout());
-           navigate("/", { replace: true });
-         }}
-       >
-         Se déconnecter
-       </NavLink>
+        <NavLink
+          type="submit"
+          className="loggout-button"
+          to="/"
+          onClick={(event) => {
+            event.preventDefault();
+            dispatch(logout());
+            navigate("/", { replace: true });
+          }}
+        >
+          Se déconnecter
+        </NavLink>
        )
       }
     </div>

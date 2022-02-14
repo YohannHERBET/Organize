@@ -152,11 +152,6 @@ export const changeEditTaskStartDate = (EditTaskStartDate) => ({
   EditTaskStartDate: EditTaskStartDate,
 });
 
-// export const addProject = (newProject) => ({
-//   type: ADD_PROJECT,
-//   newProject: newProject,
-// });
-
 export const sendProject = () => ({
   type: SEND_PROJECT,
 });

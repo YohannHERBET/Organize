@@ -5,15 +5,18 @@ import Navbar from 'src/components/Navbar';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
-
 import { showNewProjectModal, showEditTaskModal } from 'src/actions/modals';
-import { fetchData, fetchTask, fetchTasks, fetchFiltredTask, saveCurrentProjectId, fetchProject, saveProject, saveCurrentTaskId, saveCurrentCategoryId, fetchCategory } from '../../actions/projects';
-
-import { sendProject } from '../../actions/controlledField';
-
-// un selector c'est simplement une fonction à qui on passe le state pour en déduire une valeur
-
-// import projectsData from 'src/data';
+import 
+{ 
+  fetchData, 
+  fetchTask, 
+  fetchFiltredTask, 
+  saveCurrentProjectId, 
+  fetchProject, 
+  saveCurrentTaskId, 
+  saveCurrentCategoryId, 
+  fetchCategory 
+} from '../../actions/projects';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -21,10 +24,13 @@ const Dashboard = () => {
   const token = useSelector((state) => state.reducer.token);
 
   useEffect(() => {
+    // fetchData = load all of data of the apî for the user
     dispatch(fetchData());
+    // fetchFiltredTask = load 5 tasks to come filtred 
     dispatch(fetchFiltredTask());
   }, [!token == '']);
 
+  // filterCurrentDate = for have the date of the day
   const filterCurrentDate = () => {
     let today = new Date();
     let dd = String(today.getDate()).padStart(2, '0');
@@ -37,17 +43,7 @@ const Dashboard = () => {
   };
 
   const taskDataFromState = useSelector((state) => state.reducer.tasksData);
-  console.log(taskDataFromState);
 
-  console.log((projectsDataFromState.map((project) => project.categories.map((category) => category.tasks.filter(task => 
-    (task.dueDate > filterCurrentDate())).map((task) => (
-      <Link
-        key={task.id}
-        to={`/kanban-view/project/${project.id}`}
-      >
-        <li>{task.name} ({task.dueDate.split('T')[0]})</li>
-      </Link>
-    ))))).splice(0, 5));
   return (
     <>
       <Header />

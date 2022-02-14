@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-// import { SEND_PROJECT } from 'src/actions/controlledField';
 import { SEND_CATEGORY, SEND_TASK, EDIT_TASK, EDIT_PROJECT, EDIT_CATEGORY, EDIT_TASK_POST, EDIT_PASSWORD, EDIT_EMAIL } from 'src/actions/controlledField';
 
 import {LOG_IN, CREATE_USER, DELETE_USER, saveUserData, saveLogged, saveErrorCode } from 'src/actions/action';
@@ -8,8 +7,6 @@ import {LOG_IN, CREATE_USER, DELETE_USER, saveUserData, saveLogged, saveErrorCod
 import { FETCH_DATA, FETCH_FILTRED_TASK, saveData, FETCH_TASK, saveTask, DELETE_PROJECT, DELETE_CATEGORY, DELETE_TASK, FETCH_PROJECT, saveProject, FETCH_CATEGORY, saveCategory, saveFiltredTask } from '../actions/projects';
 
 import { SEND_PROJECT } from 'src/actions/controlledField';
-// import { SEND_CATEGORY } from 'src/actions/controlledField';
-// import { SEND_TASK } from '../actions/controlledField';
 
 const middleware = (store) => (next) => (action) => {
   const newProjectDatas = {
@@ -62,31 +59,28 @@ const middleware = (store) => (next) => (action) => {
   };
 
   
-  const deleteProjectUrl = `http://yohannherbet-server.eddi.cloud/projet-O-rganize-back/public/api/project/${store.getState().reducer.currentProjectId}`;
-  // console.log(deleteProjectUrl);
-  const deleteCategoryUrl = `http://yohannherbet-server.eddi.cloud/projet-O-rganize-back/public/api/category/${store.getState().reducer.currentCategoryId}`;
-  const deleteTaskUrl = `http://yohannherbet-server.eddi.cloud/projet-O-rganize-back/public/api/task/${store.getState().reducer.currentTaskId}`;
-  const getTaskUrl = `http://yohannherbet-server.eddi.cloud/projet-O-rganize-back/public/api/task/${store.getState().reducer.currentTaskId}`;
-  const editTaskUrl = `http://yohannherbet-server.eddi.cloud/projet-O-rganize-back/public/api/task/${store.getState().reducer.currentTaskId}`;
-  const getProjectUrl = `http://yohannherbet-server.eddi.cloud/projet-O-rganize-back/public/api/project/${store.getState().reducer.currentProjectId}`;
-  const editProjectUrl = `http://yohannherbet-server.eddi.cloud/projet-O-rganize-back/public/api/project/${store.getState().reducer.currentProjectId}`;
-  const getCategoryUrl = `http://yohannherbet-server.eddi.cloud/projet-O-rganize-back/public/api/category/${store.getState().reducer.currentCategoryId}`;
-  const editCategoryUrl = `http://yohannherbet-server.eddi.cloud/projet-O-rganize-back/public/api/category/${store.getState().reducer.currentCategoryId}`;
-  const editPassword = `http://yohannherbet-server.eddi.cloud/projet-O-rganize-back/public/api/user/${store.getState().reducer.userId}`;
+  const deleteProjectUrl = `http://yohann-herbet.yohann-herbet.com.mfmj2617.odns.fr/public/api/project/${store.getState().reducer.currentProjectId}`;
+ 
+  const deleteCategoryUrl = `http://yohann-herbet.yohann-herbet.com.mfmj2617.odns.fr/public/api/category/${store.getState().reducer.currentCategoryId}`;
+  const deleteTaskUrl = `http://yohann-herbet.yohann-herbet.com.mfmj2617.odns.fr/public/api/task/${store.getState().reducer.currentTaskId}`;
+  const getTaskUrl = `http://yohann-herbet.yohann-herbet.com.mfmj2617.odns.fr/public/api/task/${store.getState().reducer.currentTaskId}`;
+  const editTaskUrl = `http://yohann-herbet.yohann-herbet.com.mfmj2617.odns.fr/public/api/task/${store.getState().reducer.currentTaskId}`;
+  const getProjectUrl = `http://yohann-herbet.yohann-herbet.com.mfmj2617.odns.fr/public/api/project/${store.getState().reducer.currentProjectId}`;
+  const editProjectUrl = `http://yohann-herbet.yohann-herbet.com.mfmj2617.odns.fr/public/api/project/${store.getState().reducer.currentProjectId}`;
+  const getCategoryUrl = `http://yohann-herbet.yohann-herbet.com.mfmj2617.odns.fr/public/api/category/${store.getState().reducer.currentCategoryId}`;
+  const editCategoryUrl = `http://yohann-herbet.yohann-herbet.com.mfmj2617.odns.fr/public/api/category/${store.getState().reducer.currentCategoryId}`;
+  const editPassword = `http://yohann-herbet.yohann-herbet.com.mfmj2617.odns.fr/public/api/user/${store.getState().reducer.userId}`;
 
   switch (action.type) {
     case LOG_IN:
       axios.post(
-        'http://yohannherbet-server.eddi.cloud/projet-O-rganize-back/public/api/login_check',
-        // on transmet un objet qui contient les données
+        'http://yohann-herbet.yohann-herbet.com.mfmj2617.odns.fr/public/api/login_check',
         {
           username: store.getState().reducer.changeInputLoginEmail,
           password: store.getState().reducer.changeInputLoginPassword,
         },
       )
         .then((response) => {
-          console.log(response);
-          // on veut enregistrer les informations de la réponse dans le state
           const newAction = saveUserData(
             response.data.token,
           );
@@ -105,19 +99,14 @@ const middleware = (store) => (next) => (action) => {
 
     case CREATE_USER:
       axios.post(
-        'http://yohannherbet-server.eddi.cloud/projet-O-rganize-back/public/api/user',
-        // on transmet un objet qui contient les données
+        'http://yohann-herbet.yohann-herbet.com.mfmj2617.odns.fr/public/api/user',
+        
         {
           email: store.getState().reducer.inputSigninEmail,
           password: store.getState().reducer.inputSigninPassword,
         },
       )
-        .then((response) => {
-          console.log(response);
-        })
-
         .catch((error) => {
-          console.log(error.response);
           console.warn(error.response.status);
           store.dispatch(saveErrorCode(error.response.status));
         });
@@ -125,44 +114,32 @@ const middleware = (store) => (next) => (action) => {
       break;
 
     case FETCH_DATA:
-      axios.get('http://yohannherbet-server.eddi.cloud/projet-O-rganize-back/public/api/project',
+      axios.get('http://yohann-herbet.yohann-herbet.com.mfmj2617.odns.fr/public/api/project',
         {
           headers: {
             Authorization: `Bearer ${store.getState().reducer.token}`,
           },
         },
       ).then((response) => {
-        console.log(response);
         const projects = response.data[1];
-        console.log(projects);
         const userData = response.data[0][0].id;
-        console.log(userData);
         const userEmail = response.data[0][0].email;
-        console.log(userEmail);
         store.dispatch(saveData(projects, userData, userEmail));
       })
-        .catch((error) => {
-          console.log(error);
-        });
 
       break;
 
       case FETCH_FILTRED_TASK:
-      axios.get('http://yohannherbet-server.eddi.cloud/projet-O-rganize-back/public/api/task',
+      axios.get('http://yohann-herbet.yohann-herbet.com.mfmj2617.odns.fr/public/api/task',
         {
           headers: {
             Authorization: `Bearer ${store.getState().reducer.token}`,
           },
         },
       ).then((response) => {
-        console.log(response);
         const taskData = response.data;
-        console.log(taskData);
         store.dispatch(saveFiltredTask(taskData));
       })
-        .catch((error) => {
-          console.log(error);
-        });
 
       break;
 
@@ -174,14 +151,9 @@ const middleware = (store) => (next) => (action) => {
           },
         },
       ).then((response) => {
-        console.log(response);
         const task = response.data;
-        console.log(task);
         store.dispatch(saveTask(task));
       })
-        .catch((error) => {
-          console.log(error);
-        });
 
       break;
 
@@ -193,13 +165,10 @@ const middleware = (store) => (next) => (action) => {
           },
         },
       ).then((response) => {
-        console.log(response);
         const project = response.data;
-        console.log(project);
         store.dispatch(saveProject(project));
       })
         .catch((error) => {
-          console.log(error);
         });
 
       break;
@@ -212,26 +181,19 @@ const middleware = (store) => (next) => (action) => {
           },
         },
       ).then((response) => {
-        console.log(response);
         const category = response.data;
-        console.log(category);
         store.dispatch(saveCategory(category));
       })
-        .catch((error) => {
-          console.log(error);
-        });
 
       break;
 
     case SEND_PROJECT:
-      axios.post('http://yohannherbet-server.eddi.cloud/projet-O-rganize-back/public/api/project', newProjectDatas, {
+      axios.post('http://yohann-herbet.yohann-herbet.com.mfmj2617.odns.fr/public/api/project', newProjectDatas, {
         headers: {
           Authorization: `Bearer ${store.getState().reducer.token}`,
         },
       },
-      ).then((response) => {
-        console.log(response);
-      })
+      )
         .catch((error) => {
           console.error(error);
         });
@@ -239,42 +201,36 @@ const middleware = (store) => (next) => (action) => {
       break;
 
     case SEND_CATEGORY:
-      axios.post('http://yohannherbet-server.eddi.cloud/projet-O-rganize-back/public/api/category', newCategoryData, {
+      axios.post('http://yohann-herbet.yohann-herbet.com.mfmj2617.odns.fr/public/api/category', newCategoryData, {
         headers: {
           Authorization: `Bearer ${store.getState().reducer.token}`,
         },
       }
-      ).then((response) => {
-        console.log(response);
-      }).catch((error) => {
+      ).catch((error) => {
         console.error(error);
       });
 
       break;
 
     case SEND_TASK:
-      axios.post('http://yohannherbet-server.eddi.cloud/projet-O-rganize-back/public/api/task', newTaskData, {
+      axios.post('http://yohann-herbet.yohann-herbet.com.mfmj2617.odns.fr/public/api/task', newTaskData, {
         headers: {
           Authorization: `Bearer ${store.getState().reducer.token}`,
         },
       },
-      ).then((response) => {
-        console.log(response);
-      }).catch((error) => {
+      ).catch((error) => {
         console.error(error);
       });
 
       break;
 
     case DELETE_USER:
-      axios.delete('http://yohannherbet-server.eddi.cloud/projet-O-rganize-back/public/api/user', {
+      axios.delete('http://yohann-herbet.yohann-herbet.com.mfmj2617.odns.fr/public/api/user', {
         headers: {
           Authorization: `Bearer ${store.getState().reducer.token}`,
         },
       },
-      ).then((response) => {
-        console.log(response);
-      }).catch((error) => {
+      ).catch((error) => {
         console.error(error);
       });
 
@@ -286,9 +242,7 @@ const middleware = (store) => (next) => (action) => {
           Authorization: `Bearer ${store.getState().reducer.token}`,
         },
       },
-      ).then((response) => {
-        console.log(response);
-      }).catch((error) => {
+      ).catch((error) => {
         console.error(error);
       });
 
@@ -300,9 +254,7 @@ const middleware = (store) => (next) => (action) => {
           Authorization: `Bearer ${store.getState().reducer.token}`,
         },
       },
-      ).then((response) => {
-        console.log(response);
-      }).catch((error) => {
+      ).catch((error) => {
         console.error(error);
       });
 
@@ -314,9 +266,7 @@ const middleware = (store) => (next) => (action) => {
           Authorization: `Bearer ${store.getState().reducer.token}`,
         },
       },
-      ).then((response) => {
-        console.log(response);
-      }).catch((error) => {
+      ).catch((error) => {
         console.error(error);
       });
 
@@ -328,23 +278,19 @@ const middleware = (store) => (next) => (action) => {
           Authorization: `Bearer ${store.getState().reducer.token}`,
         },
       },
-      ).then((response) => {
-        console.log(response);
-      }).catch((error) => {
+      ).catch((error) => {
         console.error(error);
       });
 
       break;
 
     case EDIT_TASK_POST:
-      axios.post(`http://yohannherbet-server.eddi.cloud/projet-O-rganize-back/public/api/task`, editTaskData, {
+      axios.post(`http://yohann-herbet.yohann-herbet.com.mfmj2617.odns.fr/public/api/task`, editTaskData, {
         headers: {
           Authorization: `Bearer ${store.getState().reducer.token}`,
         },
       },
-      ).then((response) => {
-        console.log(response);
-      }).catch((error) => {
+      ).catch((error) => {
         console.error(error);
       });
 
@@ -356,9 +302,7 @@ const middleware = (store) => (next) => (action) => {
           Authorization: `Bearer ${store.getState().reducer.token}`,
         },
       },
-      ).then((response) => {
-        console.log(response);
-      }).catch((error) => {
+      ).catch((error) => {
         console.error(error);
       });
 
@@ -370,9 +314,7 @@ const middleware = (store) => (next) => (action) => {
           Authorization: `Bearer ${store.getState().reducer.token}`,
         },
       },
-      ).then((response) => {
-        console.log(response);
-      }).catch((error) => {
+      ).catch((error) => {
         console.error(error);
       });
 
@@ -384,9 +326,7 @@ const middleware = (store) => (next) => (action) => {
           Authorization: `Bearer ${store.getState().reducer.token}`,
         },
       },
-      ).then((response) => {
-        console.log(response);
-      }).catch((error) => {
+      ).catch((error) => {
         console.warn(error);
       });
 
@@ -398,9 +338,7 @@ const middleware = (store) => (next) => (action) => {
           Authorization: `Bearer ${store.getState().reducer.token}`,
         },
       },
-      ).then((response) => {
-        console.log(response);
-      }).catch((error) => {
+      ).catch((error) => {
         console.warn(error);
       });
 

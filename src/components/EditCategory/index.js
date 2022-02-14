@@ -6,7 +6,7 @@ import { fetchData } from '../../actions/projects';
 
 const EditCategory = () => {
   const editCategoryName = useSelector((state) => state.reducer.valueEditCategoryName);
-  console.log(editCategoryName);
+
   const dispatch = useDispatch();
 
   return (
